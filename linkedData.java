@@ -1,11 +1,7 @@
 package StackLinkedData;
-
-import javax.xml.soap.Node;
-
 import java.util.EmptyStackException;
 
-
-public class linkedStack<T> implements stackInterface<T> {
+public class linkedData<T> implements stackInterface<T> {
 	private Node<T> firstN; 
 	private int numberOfEntries = 0;
 	private Node<T> front;
@@ -14,27 +10,29 @@ public class linkedStack<T> implements stackInterface<T> {
 	public class Node<T>
 	{
 		T data;
-		linkedStack<T>.Node<T> next;
+		linkedData<T>.Node<T> next;
 		
 		public Node() {
 			data = null;
 			next = null;
 		}
 
-		public Node(T newItem, linkedStack<T>.Node<T> nextN)
+		public Node(T newItem, linkedData<T>.Node<T> nextN)
 		{
 			this.data = newItem;
 			this.next = nextN;
 		}
 	}
-
+	
+	
+	
 	/** Creates an empty stack having a given capacity. */
-	public linkedStack()
+	public linkedData()
 	{
 		firstN = null;
 	} // end constructor
         
-        public linkedStack(T obj)
+        public linkedData(T obj)
         {
             firstN = new Node<T>();
             firstN.data = obj;
@@ -46,7 +44,8 @@ public class linkedStack<T> implements stackInterface<T> {
 	
 	/** Adds a new entry to the top of this stack.
     @param newEntry  An object to be added to the stack. */
-        @Override
+        @SuppressWarnings("unchecked")
+		@Override
 	public void push(T newEntry)
 	{
 		if(isEmpty() == true)
@@ -144,4 +143,5 @@ public class linkedStack<T> implements stackInterface<T> {
         }
    }
    
+}
 
